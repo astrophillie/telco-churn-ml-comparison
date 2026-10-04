@@ -52,4 +52,4 @@ Notebook-ul contine codul, graficele, rezultatele si interpretarile complete.
 
 ## Technologies
 
-Python, pandas, NumPy, Matplotlib, Seaborn si scikit-learn.
+Python, Pandas, NumPy, Matplotlib, Seaborn si Scikit-learn.
