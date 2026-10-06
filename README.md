@@ -1,4 +1,4 @@
-# Telco Customer Churn Prediction
+Telco Customer Churn Prediction
 
 Acest proiect analizeaza datele clientilor unei companii de telecomunicatii si construieste modele de machine learning pentru a estima daca un client va renunta la servicii.
 
@@ -22,7 +22,8 @@ Datele sunt incarcate direct dintr-o sursa publica IBM, astfel incat notebook-ul
 - compararea cu un baseline;
 - antrenarea modelelor Logistic Regression si Random Forest;
 - evaluarea prin confusion matrix, accuracy, precision, recall, F1 si ROC-AUC;
-- compararea variantelor cu si fara echilibrarea claselor si feature engineering.
+- compararea variantelor cu si fara echilibrarea claselor si feature engineering;
+- segmentarea clientilor cu K-Means si compararea ratei de churn dintre clustere.
 
 ## Results
 
@@ -40,6 +41,17 @@ Am ales **Logistic Regression** ca model final deoarece rezultatul sau este cel 
 
 Echilibrarea claselor a crescut recall-ul Logistic Regression de la **53,18%** la **79,93%** in cross-validation. Caracteristicile create prin feature engineering au produs imbunatatiri mici, dar constante pentru toate metricile Random Forest.
 
+## Customer segmentation with K-Means
+
+Am folosit K-Means pentru a grupa clientii dupa vechime, costuri si numarul de servicii utilizate. Variabila `Churn` nu a fost folosita pentru formarea clusterelor, ci doar pentru analiza ulterioara a grupurilor obtinute.
+
+| Cluster | Number of customers | Average tenure | Average monthly charges | Average services | Churn rate |
+|---|---:|---:|---:|---:|---:|
+| 0 | 2.500 | 54,49 luni | 90,27 | 5,52 | 17,72% |
+| 1 | 4.532 | 20,25 luni | 50,75 | 2,17 | 31,47% |
+
+Clusterul 1, format din clienti mai noi si cu mai putine servicii, are o rata de churn cu aproximativ **14 puncte procentuale mai mare**. Clasificarea identifica individual clientii care risca sa plece, iar clustering-ul ajuta la descrierea profilului grupurilor care necesita mai multa atentie.
+
 ## Limitations
 
 Datele provin de la o singura companie de telecomunicatii. Performanta modelului poate fi diferita pentru alti clienti, alte companii sau alte perioade, iar importanta caracteristicilor nu demonstreaza cauzalitatea.
@@ -52,4 +64,4 @@ Notebook-ul contine codul, graficele, rezultatele si interpretarile complete.
 
 ## Technologies
 
-Python, Pandas, NumPy, Matplotlib, Seaborn si Scikit-learn.
+Python, pandas, NumPy, Matplotlib, Seaborn si scikit-learn.
